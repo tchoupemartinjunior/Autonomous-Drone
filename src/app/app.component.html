@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-header" style="height:70px;">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ml-5" id="brand">DroneX</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
+    </nav>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div id="sidenav" class="col-md-3 col-sm-2 bg-dark m-3 p-2">
+            <nav class="navbar navbar-dark bg-dark flex-column flex-sm-row">
+                <form class="container-fluid justify-content-start">
+                    <button class="btn btn-light me-2" type="button">Drones</button>
+                    <button class="btn btn-light me-2" type="button">Mission</button>
+                    <button class="btn btn-light me-2" type="button">Manuelle</button>
+                </form>
+                <div class="card bg-dark text-white m-3" style="width: 25rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Itinéraire</h5>
+                        <div class="mb-1">
+                            <!--The start position is obtained automatically from the server,it corresponds to the current drone position-->
+                            <label for="startPosition" class="form-label">Départ</label>
+                            <input type="text" class="form-control" id="startPosition" placeholder="Point de départ" readonly>
+                            <!--more security needs to be implemented on this input-->
+                        </div>
+                        <div class="mb-1">
+                            <label class="form-label">Destination</label>
+                            <input type="text" class="form-control" placeholder="Entrer une destination">
+                        </div>
+
+                        <fa-icon [icon]="faPlusCircle" style="font-size:30px"></fa-icon>Ajouter une destination
+
+                        <button class="btn btn-warning btn mt-5 float-end" type="button">Envoyer</button>
+
+                    </div>
+                </div>
+
+                <div id="Drone-info">
+                    <h3 class="text-white ml-5">Drone infos</h3>
+                    <div class="col mb-2">
+                        <div class="row text-white m-2">
+                            <div class="col mb-2">
+                                <div class="info-item">
+                                    <h4 class="info-title">Altitude</h4>
+                                    <p><span class="info-value">20 <span class="info-unit">m</span></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="info-item">
+                                    <h4 class="info-title">Vitesse</h4>
+                                    <p><span class="info-value">18 <span class="info-unit">Kph</span></span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row text-white m-2">
+                            <div class="col">
+                                <div class="info-item">
+                                    <h4 class="info-title">Gps</h4>
+                                    <p>20.0032, 14.231245</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="info-item">
+                                    <h4 class="info-title">Other</h4>
+                                    <p><span class="info-value">20 <span class="info-unit">m</span></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </nav>
+
+        </div>
+
+        <div id="map" class="col-8 mt-3 ml-1">
+            <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</div>
