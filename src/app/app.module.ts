@@ -15,7 +15,7 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyANz1hf2rRtU8et_m0h-YCKU5S5MHa6ce0'
+      apiKey: ''
     })
   ],
   providers: [],
